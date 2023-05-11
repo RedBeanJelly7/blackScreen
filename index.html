@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>black</title>
+    <style>
+        *{
+            margin: 0;
+            position: relative;
+        }
+        .black{
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+        }
+        .pos{
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            transform: translate(-50%, -50%);
+            background: rgba(99, 99, 99, 0.5);
+            color: rgb(95, 95, 95);
+            padding: 5px 10px;
+            border-radius:3px;
+            transition:300ms background, 300ms color;
+        }
+        .pos:hover{
+            cursor:pointer;
+            background: rgba(214, 214, 214, 0.8);
+            color: rgb(43, 43, 43);
+
+        }
+        .off{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="black">
+
+    </div>
+    <button class="btn pos">
+        전체화면
+    </button>
+    <button class="btn-close pos off">
+        전체화면 끄기
+    </button>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script>
+        $(".btn").click(function(){
+            document.documentElement.requestFullscreen()
+            $(".btn").addClass("off")
+            $(".btn-close").removeClass("off")
+
+        })
+        $(".btn-close").click(function(){
+            document.exitFullscreen()
+            $(".btn").removeClass("off")
+            $(".btn-close").addClass("off")
+
+        })
+    </script>
+</body>
+</html>
